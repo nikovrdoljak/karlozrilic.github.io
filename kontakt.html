@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="hr">
+    <head>
+        <meta charset="utf-8">
+        <title>Celeste Pizza</title>
+        <link rel="stylesheet" type="text/css" href="css/reset.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/mobile-css.css">
+        <link href="https://fonts.googleapis.com/css?family=McLaren&display=swap" rel="stylesheet">
+    </head>
+    <body>
+
+        <div class="content">    
+
+            <nav id="links" class="nav nav-pills flex-column flex-sm-row">
+                <a class="flex-sm-fill text-sm-center nav-link" href="index.html">HOME</a>
+                <a class="flex-sm-fill text-sm-center nav-link" href="index.html#usluge">USLUGE</a>
+                <a class="flex-sm-fill text-sm-center nav-link" href="index.html#meni">MENI</a>
+                <a class="flex-sm-fill text-sm-center nav-link" href="o-nama.html">O NAMA</a>
+                <a class="flex-sm-fill text-sm-center nav-link activated" href="#">KONTAKT</a>
+            </nav>
+
+            <button id="navbutton" class="navbutton" onclick="toggleMenu()">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </button>  
+
+            <div id="mySidebar" class="sidebar">
+                <a class="link flex-sm-fill text-sm-center nav-link" href="index.html" onclick="toggleMenu()">HOME</a>
+                <a class="link flex-sm-fill text-sm-center nav-link" href="index.html#usluge" onclick="toggleMenu()">USLUGE</a>
+                <a class="link flex-sm-fill text-sm-center nav-link" href="index.html#meni" onclick="toggleMenu()">MENI</a>
+                <a class="link flex-sm-fill text-sm-center nav-link" href="o-nama.html" onclick="toggleMenu()">O NAMA</a>
+                <a class="link flex-sm-fill text-sm-center nav-link active" href="#" onclick="toggleMenu()">KONTAKT</a>
+            </div>
+
+            <div class="kontakt">
+                <div class="hero-text">
+                    <img src="images/logo.png">
+                    <h1 style="font-size: 4em;">CELESTE PIZZA</h1>
+                </div>
+            </div>
+        
+            <div class="intro">
+
+                <h3 id="text">
+                    KONTAKT INFO
+                </h3>
+
+                <p id="text2">
+                   <p><b>Telefon: </b>+385 12 345 678</p>
+                   <p><b>Fax: </b>+385 87 654 321</p>
+                   <p><b>MB: </b>1234567</p>
+                   <p><b>OIB: </b>01234567891</p>
+                   <p><b>E-mail: </b>info@celeste-pizza.hr</p>
+                </p>
+
+                <h3 id="text">
+                    KONTAKT
+                </h3>
+
+                <p id="text2">
+                    Putem donjeg formulara možete direktno poslati upit ili komentar.
+                </p>
+
+                <form action="/action_page.php">
+                <div class="grid-container">
+                    <div class="ime-prezime">
+                        <label for="ime-prezime">Ime i prezime</label>
+                        <input type="text" id="ime-prezime" name="ime-prezime" placeholder="Vaše ime i prezime..." style="width: 100%;">
+                    </div>
+                    <div class="email">
+                        <label for="e-mail">E-mail adresa</label>
+                        <input type="email" id="e-mail" name="e-mail" placeholder="Vaša e-mail adresa..." style="width: 100%;">
+                    </div>
+                    <div class="telefon">
+                        <label for="telefon">Telefon</label>
+                        <input type="tel" id="telefon" name="telefon" placeholder="Vaš broj telefona..." style="width: 100%;">
+                    </div>  
+                    <div class="poruka">
+                        <label for="poruka">Poruka</label>
+                        <textarea id="poruka" name="poruka" placeholder="Napišite nam poruku..." style="height:200px; width: 100%;"></textarea>
+                    </div>
+                    <div class="submit">
+                        <input type="submit" value="Pošalji">
+                    </div>
+                </div>
+                </form>
+                  
+
+            </div>
+
+            <footer class="footer mx-auto">
+                <div class="footer-element mx-auto">
+                    <img src="images/logo.png">
+                </div>
+                <div class="footer-element mx-auto">
+                    <nav id="footer-links">
+                        <a class="footer-l" href="#links">HOME</a>
+                        <a class="footer-l" href="#usluge">USLUGE</a>
+                        <a class="footer-l" href="#meni">MENI</a>
+                        <a class="footer-l" href="#!">O NAMA</a>
+                        <a class="footer-l" href="#!">KONTAKT</a>
+                    </nav>
+                </div>
+                <div class="footer-element mx-auto">
+                    <a class="social-link" href="#" target="_blank"><img class="social" src="images/social/facebook.svg"></a>
+                    <a class="social-link" href="#" target="_blank"><img class="social" src="images/social/instagram.svg"></a>
+                    <a class="social-link" href="#" target="_blank"><img class="social" src="images/social/twitter.svg"></a>
+                    <a class="social-link" href="#" target="_blank"><img class="social" src="images/social/youtube.svg"></a>
+                </div>
+            </footer>
+        </div>
+        
+        <script>
+            var navbutton = document.getElementById("navbutton");
+            var sidebar = document.getElementById("mySidebar");
+            var open = false;
+
+            function toggleMenu() {
+                if(open == false) {
+                    sidebar.style.width = "50%";
+                    open = true;
+                    navbutton.classList.toggle("change");
+                } else {
+                    sidebar.style.width = "0";
+                    open = false;
+                    navbutton.classList.toggle("change");
+                }
+            }
+
+            var links = sidebar.getElementsByClassName("link");
+
+            for (var i = 0; i < links.length; i++) {
+                links[i].addEventListener("click", function() {
+                    var current = document.getElementsByClassName("active");
+                    current[0].className = current[0].className.replace(" active", "");
+                    this.className += " active";
+                });
+            }
+
+        </script>
+
+    </body>
+</html>
